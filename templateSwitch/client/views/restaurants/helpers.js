@@ -8,7 +8,11 @@ Template.Restaurants.helpers({
     // context, eg. the current restaurant in the loop
     return Template.instance().state.equals("currentRestaurant", this._id);
   },
-
+  currentRestaurantData: function() {
+    if (currentRestaurant = Template.instance().state.get("currentRestaurant")) {
+      return Restaurants.find(currentRestaurant);
+    }
+  },
 });
 
 Template.menuItems.helpers({
